@@ -1,0 +1,33 @@
+{
+  "name": "generator-nike",
+  "version": "1.0.0",
+  "description": "yeoman generator for react native",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/empitechathu/Nike.git"
+  },
+  "keywords": [
+    "yeoman",
+    "generator",
+    "generator-Nike"
+  ],
+  "author": "M.A Sameera Chathuranga",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/empitechathu/Nike/issues"
+  },
+  "homepage": "https://github.com/empitechathu/Nike#readme",
+  "dependencies": {
+    "chalk": "^2.0.1",
+    "lodash": "^4.17.4",
+    "yeoman-generator": "^1.1.1",
+    "yosay": "^2.0.1"
+  },
+  "devDependencies": {
+    "eslint-config-rallycoding": "^3.2.0"
+  }
+}
