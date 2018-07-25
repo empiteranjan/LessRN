@@ -1,0 +1,14 @@
+{
+  "name": "generator-lessrn",
+  "version": "1.0.0",
+  "description": "React Native Template Generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sameera Chathuranga",
+  "license": "ISC",
+  "dependencies": {
+    "yeoman-generator": "^3.0.0"
+  }
+}
