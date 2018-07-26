@@ -2,7 +2,6 @@ const Base = require('yeoman-generator');
 
 class BaseGenerator extends Base {
   initializing() {
-    //this.composeWith('rn-toolbox:checkversion');
   }
 
   prompting() {
