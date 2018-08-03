@@ -10,5 +10,12 @@
   "license": "ISC",
   "dependencies": {
     "yeoman-generator": "^3.0.0"
-  }
+  },
+  "keywords": [
+    "yeoman-generator",
+    "reactnative",
+    "react-native",
+    "reactnative-template",
+    "reactnative-codegenerator"
+  ],
 }
