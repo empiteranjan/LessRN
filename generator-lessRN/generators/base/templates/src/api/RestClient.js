@@ -1,120 +1,105 @@
-import axios from 'axios';
-import {CONNECTION_TIMEOUT_REMOTE} from '../components/helpers/ErrorMessages';
-
-export const METHODS = {
-    GET: "GET",
-    POST: "POST",
-    PUT: "PUT"
-};
+import axios from "axios";
 
 let _this;
-const _timeout = 15000;
 
-const instance = axios.create();
-instance.defaults.timeout = _timeout;
+export const METHODS = {
+  GET: "GET",
+  POST: "POST",
+  PUT: "PUT",
+  DELETE: "DELETE"
+};
 
 class RestClient {
-
-    constructor() {
-        _this = this;
+  constructor() {
+    _this = this;
+  }
+  /**
+   * Main method call for all rest calls with in logic
+   *
+   * @param {any} method
+   * @param {any} url
+   * @param {any} body
+   * @param {any} header
+   * @returns
+   * @memberof RestClient
+   */
+  API(method, url, body, header) {
+    switch (method) {
+      case METHODS.GET:
+        return this._get(url, header);
+      case METHODS.POST:
+        body = body || {};
+        return this._post(url, body, header);
+      case METHODS.PUT:
+        return this._put(url, body, header);
+      case METHODS.DELETE:
+        return this._delete(url, body, header);
+      default:
+        break;
     }
+  }
 
-    timeoutPromise(timeoutSent, err, promise) {
-        return new Promise(function (resolve, reject) {
-            promise.then(resolve, reject);
-            setTimeout(reject.bind(null, err), timeoutSent);
-        });
-    }
-
-    /**
-     * Main method call for all rest calls with in logic
-     * @param method
-     * @param url
-     * @param body
-     * @param token
-     * @constructor
-     */
-    API(method, url, body, token) {
-        switch (method) {
-            case METHODS.GET:
-                return this._get(url, token);
-            case METHODS.POST:
-                body = body || {};
-                return this._post(url, body, token);
-            case METHODS.PUT:
-                return this._put(url, body, token);
-            default:
-                break;
-        }
-    }
-
-    /**
-     * GET Rest API Call
-     * @param url
-     * @param token
-     * @returns {Promise<any> | Promise}
-     * @private
-     */
-    _get(url, token) {
-        return new Promise((resolve, reject) => {
-            instance
-                .get(url, {headers: {Authorization: token}})
-                .then(data => {
-                    resolve(data);
-                })
-                .catch(error => {
-                    reject(error.response.data.error);
-                });
-        });
-    }
-
-    /**
-     * POST Rest API Call
-     * @param url
-     * @param body
-     * @param token
-     * @returns {Promise<any> | Promise}
-     * @private
-     */
-    _post(url, body, token) {
-        return new Promise((resolve, reject) => {
-            this.timeoutPromise(_timeout, new Error(CONNECTION_TIMEOUT_REMOTE),
-                instance
-                    .post(url, body, {
-                        headers: {
-                            'Accept': 'application/json',
-                            'Content-Type': 'application/json'
-                        }
-                    }))
-                .then(data => {
-                    resolve(data);
-                })
-                .catch(error => {
-                    reject(error);
-                });
-        });
-    }
-
-    /**
-     * PUT Rest API Call
-     * @param url
-     * @param body
-     * @param token
-     * @returns {Promise<any> | Promise}
-     * @private
-     */
-    _put(url, body, token) {
-        return new Promise((resolve, reject) => {
-            instance
-                .put(url, body, {headers: {Authorization: token}})
-                .then(data => {
-                    resolve(data);
-                })
-                .catch(error => {
-                    reject(error);
-                });
-        });
-    }
+  /**
+   * GET Rest API Call
+   *
+   * @param {any} url
+   * @param {any} header
+   * @returns
+   * @memberof RestClient
+   */
+  async _get(url, header) {
+    /*
+    const response = await axios.get(url, { headers: header });
+    return response;*/
+    return axios
+      .get(url, { headers: header })
+      .then(response => response)
+      .catch(error => error);
+  }
+  /**
+   * POST Rest API Call
+   *
+   * @param {any} url
+   * @param {any} body
+   * @param {any} header
+   * @returns
+   * @memberof RestClient
+   */
+  async _post(url, body, header) {
+    return axios
+      .post(url, body, { headers: header })
+      .then(response => response)
+      .catch(error => error);
+  }
+  /**
+   * PUT Rest API Call
+   *
+   * @param {any} url
+   * @param {any} body
+   * @param {any} header
+   * @returns
+   * @memberof RestClient
+   */
+  async _put(url, body, header) {
+    return axios
+      .put(url, body, { headers: header })
+      .then(response => response)
+      .catch(error => error);
+  }
+  /**
+   * DELETE Rest API Call
+   *
+   * @param {any} url
+   * @param {any} header
+   * @returns
+   * @memberof RestClient
+   */
+  async _delete(url, body, header) {
+    return axios
+      .delete(url, { headers: header })
+      .then(response => response)
+      .catch(error => error);
+  }
 }
 
 export const client = new RestClient();

@@ -1,19 +1,23 @@
-import { StyleSheet, Platform } from 'react-native'
-import { WHITE, GREEN, BLACK } from './Colors'
-import { scale, moderateScale, verticalScale } from '../components/helpers/Scale'
+import { StyleSheet, Platform } from "react-native";
+import { WHITE, GREEN, BLACK } from "./Colors";
+import {
+  scale,
+  moderateScale,
+  verticalScale
+} from "../components/helpers/Scale";
 
 module.exports = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: Platform.OS === 'ios' ? 30 : 0,
+    paddingTop: Platform.OS === "ios" ? 30 : 0,
     paddingBottom: 10,
     paddingLeft: 10,
     paddingRight: 10
   },
 
   contentCenter: {
-    justifyContent: 'center',
-    alignItems: 'center'
+    justifyContent: "center",
+    alignItems: "center"
   },
 
   //FLEX
@@ -22,50 +26,50 @@ module.exports = StyleSheet.create({
   },
 
   flexDirectionRow: {
-    flexDirection: 'row'
+    flexDirection: "row"
   },
 
   alignSelfStart: {
-    alignSelf: 'flex-start'
+    alignSelf: "flex-start"
   },
 
   alignSelfEnd: {
-    alignSelf: 'flex-end'
+    alignSelf: "flex-end"
   },
 
   alignSelfCenter: {
-    alignSelf: 'center'
+    alignSelf: "center"
   },
 
   justifyContentSpaceBetween: {
-    justifyContent: 'space-between'
+    justifyContent: "space-between"
   },
 
   //POSITION
   positionAbsolute: {
-    position: 'absolute'
+    position: "absolute"
   },
 
   //FONTS
 
   gothamBook: {
-    fontFamily: 'Gotham',
-    fontWeight: 'normal'
+    fontFamily: "Gotham",
+    fontWeight: "normal"
   },
 
   gothamMedium: {
-    fontFamily: 'Gotham',
-    fontWeight: '400'
+    fontFamily: "Gotham",
+    fontWeight: "400"
   },
 
   gothamBold: {
-    fontFamily: 'Gotham',
-    fontWeight: 'bold'
+    fontFamily: "Gotham",
+    fontWeight: "bold"
   },
 
   gothamLight: {
-    fontFamily: 'Gotham',
-    fontWeight: '300'
+    fontFamily: "Gotham",
+    fontWeight: "300"
   },
 
   //FONT SIZES
@@ -100,11 +104,11 @@ module.exports = StyleSheet.create({
 
   //TEXT ALIGN
   textAlignRight: {
-    textAlign: 'right'
+    textAlign: "right"
   },
 
   textAlignCenter: {
-    textAlign: 'center'
+    textAlign: "center"
   },
 
   //COLORS
@@ -122,7 +126,7 @@ module.exports = StyleSheet.create({
 
   //Text Properties
   textAlignCenter: {
-    textAlign: 'center'
+    textAlign: "center"
   },
 
   //CUSTOM STYLES
@@ -131,17 +135,17 @@ module.exports = StyleSheet.create({
       ios: {
         shadowColor: BLACK,
         shadowOpacity: 0.1,
-        shadowOffset: {width: 1, height: 1},
+        shadowOffset: { width: 1, height: 1 }
       },
       android: {
-        elevation: 1,
-      },
+        elevation: 1
+      }
     }),
     backgroundColor: WHITE,
     padding: 10,
     marginTop: 10,
     marginBottom: 10,
     marginLeft: 10,
-    marginRight: 10,
+    marginRight: 10
   }
-})
+});

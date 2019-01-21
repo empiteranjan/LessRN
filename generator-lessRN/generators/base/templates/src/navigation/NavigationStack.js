@@ -1,13 +1,11 @@
-import {createStackNavigator} from 'react-navigation';
+import { createStackNavigator, createAppContainer } from "react-navigation";
 
-import Home from '../features/home/Home'
-import Details from '../features/details/Details'
+import Home from "../features/home/Home";
+import Details from "../features/details/Details";
 
-const NavigationStack = createStackNavigator(
-    {
-        Home: { screen: Home },
-        Details: { screen: Details },
-    }
-);
+const NavigationStack = createStackNavigator({
+  Home: { screen: Home },
+  Details: { screen: Details }
+});
 
-export default NavigationStack;
+export default createAppContainer(NavigationStack);
